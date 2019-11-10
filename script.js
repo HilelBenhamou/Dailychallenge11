@@ -4,6 +4,8 @@ var input = document.querySelector("input");
 var addButton= document.querySelector("#addButton");
 var clearButton= document.querySelector("#clearButton");
 var ul = document.querySelector("ul");
+var li=document.querySelector("li");
+
 
 ////////////////////////////////////////////////////////////
 
@@ -17,8 +19,13 @@ function writeItems (){
 	but.textContent="X";
 	but.addEventListener("click", removeChild);
 
+	var invisiblebut= document.createElement("button");
+	invisiblebut.textContent="Done";
+	invisiblebut.addEventListener("click", linethrought);
+
 	li.appendChild(span);
 	li.appendChild(but);
+	li.appendChild(invisiblebut)
 	ul.appendChild(li);
 	input.value="";
 }
@@ -37,3 +44,10 @@ function removeChild(){
 	this.parentElement.remove();
 	// li.innerHTML="";
 }
+
+function linethrought(){
+	this.parentElement.setAttribute("class", "done");
+}
+///////////////////////////////////////////////////////////
+
+//barer quand on clique dessus
