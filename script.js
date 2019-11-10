@@ -5,25 +5,35 @@ var addButton= document.querySelector("#addButton");
 var clearButton= document.querySelector("#clearButton");
 var ul = document.querySelector("ul");
 
+////////////////////////////////////////////////////////////
+
 function writeItems (){
 	var li= document.createElement("li");
 	var span =document.createElement("span");
-	var buttonx=document.createElement("button");
-	// buttonx.setAttribute("onclick",removeChild(this))
 	var text = input.value;
 	span.innerText=text;
-	buttonx.textContent="X";
+
+	var but=document.createElement("button");
+	but.textContent="X";
+	but.addEventListener("click", removeChild);
+
 	li.appendChild(span);
-	li.appendChild(buttonx);
+	li.appendChild(but);
 	ul.appendChild(li);
+	input.value="";
 }
 addButton.addEventListener("click", writeItems);
 
+///////////////////////////////////////////////////////////
 
 function clearAll(){
 	ul.innerHTML="";
 }
 clearButton.addEventListener("click", clearAll);
 
-// function removeChild(x){
-// console.log("toto")}
+////////////////////////////////////////////////////////////
+
+function removeChild(){
+	this.parentElement.remove();
+	// li.innerHTML="";
+}
